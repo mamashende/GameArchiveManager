@@ -94,14 +94,25 @@ double fileUtils::getUsageSpace()
 fileUtils::fileUtils()
 {
     char path[MAX_PATH];
+    std::string line;
     if (!SUCCEEDED(SHGetFolderPathA(NULL, CSIDL_LOCAL_APPDATA, NULL, 0, path)))
-        throw MyExpection("无法找到系统AppData文件夹");
+        throw MyExpection("无法找到文件夹");
     datapath.assign(path);
     if (!fs::exists(datapath))
-        throw MyExpection("无法找到系统AppData文件夹");
-    datapath=datapath.parent_path().append("LocalLow\\Nolla_Games_Noita\\save00");
+        throw MyExpection("无法找到文件夹");
+    std::fstream file("path.txt",std::fstream::in);
+    if (file.is_open()) {
+    // 文件已成功打开，可以进行读取操作
+    
+    // 读取文件内容的代码
+    std::getline(file, line);
+    // 关闭文件
+    file.close();
+}
+    datapath=datapath.parent_path().append(line);
+    //datapath=datapath.parent_path().append("D:\\GAME\\The.Binding.of.Isaac.Afterbirth.Plus.With.Update.6.CHS.3.0-ALI213-22099\\The Binding of Isaac Rebirth\\Profile\\ALI213\\Saves");
     if (!fs::exists(datapath))
-        throw MyExpection("无法找到Noita存档文件夹  请检查Noita是否安装");
+        throw MyExpection("无法找到存档文件夹  请检查是否安装");
     crrpath=fs::current_path();
     crrpath.append("Archive");
     fs::create_directory(crrpath);
