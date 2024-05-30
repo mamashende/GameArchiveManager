@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 
-set(output_Name NoitaArchiveManager)
+set(output_Name GameArchiveManager)
 
-project(Noita_Archive_Manager)
+project(Game_Archive_Manager)
 
 #设置静态编译
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
