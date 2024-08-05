@@ -69,7 +69,6 @@ void comReader::print_log(int start, int end)
 void comReader::com_help()
 {
     msgWrn("---------------------------------------------------------------");
-    msgWrn("gitHub主页:https://github.com/Xiaomony/NoitaArchiveManager.git");
     msgWrn("1.本程序运行时会在程序所在目录下建立一个Archive文件夹用于存储日志文件和保存的存档,请勿删除(若删除,则相当于恢复程序第一次运行的状态)");
     msgWrn("2.建议将程序放在磁盘中的某个文件夹下,再发送到桌面快捷方式使用(避免程序在桌面创建Archive文件夹后被误删)");
     //msgWrn("3.请在Noita主界面有\"继续\"这一选项时读取存档,若没有则请先\"新游戏\"后再关闭游戏读档,重新打开后再点击\"继续\"");
@@ -89,7 +88,7 @@ void comReader::com_help()
 void comReader::com_cls()
 {
     system("cls");
-    msgSuc("====================Noita Archive Manager====================");
+    msgSuc("====================Game Archive Manager====================");
     msgSuc("==================初次使用请使用help或h查看帮助==================\n");
     printf("\033[0;34m");
     msgLog("输入操作：(数字/编号/括号内简写)");
@@ -186,7 +185,7 @@ void comReader::com_load()
         msgLog("取消读取");
         return ;
     }
-    msgWrn("此过程会覆盖Noita中现有的存档,请谨慎操作!");
+    msgWrn("此过程会覆盖游戏中现有的存档,请谨慎操作!");
     std::cout<<"确定要读取存档\"["<<index+1<<"]";
 
     UINT defaultCodePage = GetACP();
@@ -225,7 +224,7 @@ void comReader::com_qload()
         msgErr("无存档可读取");
         return ;
     }
-    msgWrn("此过程会覆盖Noita中现有的存档,请谨慎操作!");
+    msgWrn("此过程会覆盖游戏中现有的存档,请谨慎操作!");
     std::cout<<"确定要读取最新的存档\"["<<index+1<<"]";
 
     UINT defaultCodePage = GetACP();
